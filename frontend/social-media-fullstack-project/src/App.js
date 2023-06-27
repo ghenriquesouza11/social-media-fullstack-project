@@ -11,7 +11,7 @@ import Profile from './pages/profile/profile';
 import PropTypes from 'prop-types';
 
 function App() {
-	const currentUser = false;
+	const currentUser = true;
 
 	const Layout = () => {
 		return(
