@@ -1,9 +1,14 @@
+@import '../../App.scss';
+
 .rightbar{
+    @include themify($themes) {
     flex: 3;
     position: sticky;
-    top: 60px;
-     height: calc(100vh - 60px);
+    top: 50px;
+     height: calc(100vh - 50px);
     overflow-y: scroll;
+    background-color: themed('bgSoft');
+    color: themed('textColor');
     &::-webkit-scrollbar {
         display: none;
     }
@@ -15,6 +20,7 @@
             box-shadow: 0px 0px 15px 1px rgba(0, 0, 0, 0.09);
             padding: 20px;
             margin-bottom: 20px;
+            background-color: themed('bg');
             span{
                 color: gray;
             }
@@ -34,7 +40,7 @@
                     position: relative;
                     p{
                         font-size: 13px;
-                        color: gray;
+                        color: themed('textColorSoft');
                     }
                     img{
                         width: 40px;
@@ -53,7 +59,7 @@
                     }
                     span{
                     font-weight: 500;
-                    color: black;
+                    color: themed('textColor');
                 }
             }
 
@@ -77,4 +83,5 @@
         }
         }
     }
+}
 }

@@ -1,5 +1,5 @@
-import './App.css';
-import React from 'react';
+import './App.scss';
+import React, { useContext } from 'react';
 import Login from './pages/login/login';
 import Register from './pages/register/register';
 import { Navigate, Outlet, Route, Routes } from 'react-router-dom';
@@ -9,13 +9,15 @@ import RightBar from './components/rightbar/rightbar';
 import Home from './pages/home/home';
 import Profile from './pages/profile/profile';
 import PropTypes from 'prop-types';
+import { DarkModeContext } from './contexts/darkModeContex';
 
 function App() {
 	const currentUser = true;
+	const {darkMode} = useContext(DarkModeContext);
 
 	const Layout = () => {
 		return(
-			<div>
+			<div className={`theme-${darkMode ? 'dark' : 'light'}`}>
 				<NavBar />
 				<div style={ {display: 'flex'}}>
 					<LeftBar />
