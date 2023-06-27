@@ -1,5 +1,6 @@
 import React, { createContext, useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
+
 export const AuthContext = createContext();
 
 export const AuthContextProvider = ({children}) => {
