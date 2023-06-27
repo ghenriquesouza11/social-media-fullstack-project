@@ -10,9 +10,10 @@ import Home from './pages/home/home';
 import Profile from './pages/profile/profile';
 import PropTypes from 'prop-types';
 import { DarkModeContext } from './contexts/darkModeContex';
+import { AuthContext } from './contexts/authContext';
 
 function App() {
-	const currentUser = true;
+	const {currentUser} = useContext(AuthContext);
 	const {darkMode} = useContext(DarkModeContext);
 
 	const Layout = () => {
