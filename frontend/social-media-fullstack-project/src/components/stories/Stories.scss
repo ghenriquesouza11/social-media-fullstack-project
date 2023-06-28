@@ -5,14 +5,14 @@
     gap: 10px;
     height: 250px;
     margin-bottom: 30px;
-    @include mobile {
-       height: 50px;
-       border-radius: 50%;
-       justify-content: space-between;
-    }
     @include tablet {
         height: 150px;
         gap: 12px;
+    }
+    @include mobile {
+        height: 50px;
+       border-radius: 50%;
+       justify-content: space-between;
     }
     .story{
         flex: 1;
