@@ -1,6 +1,8 @@
 const express = require('express');
 const router = express.Router();
 
-router.get('/', (_req, res) => res.status(200).json({api_status: 'ok'}));
+const authControllers = require('./controllers/auth');
+
+router.post('/register', authControllers.register );
 
 module.exports = router;
