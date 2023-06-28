@@ -2,7 +2,7 @@ import React from 'react';
 import './posts.scss';
 import Post from '../post/Post';
 
-export const Posts = () => {
+const Posts = () => {
 	const posts = [
 		{
 			id: 1,
@@ -43,3 +43,5 @@ export const Posts = () => {
 		</div>
 	);
 };
+
+export default Posts;
