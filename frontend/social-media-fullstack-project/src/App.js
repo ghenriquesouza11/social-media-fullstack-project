@@ -11,23 +11,28 @@ import Profile from './pages/profile/profile';
 import PropTypes from 'prop-types';
 import { DarkModeContext } from './contexts/darkModeContex';
 import { AuthContext } from './contexts/authContext';
+import { QueryClient, QueryClientProvider } from 'react-query';
 
 function App() {
 	const {currentUser} = useContext(AuthContext);
 	const {darkMode} = useContext(DarkModeContext);
 
+	const queryClient = new QueryClient();
+
 	const Layout = () => {
 		return(
-			<div className={`theme-${darkMode ? 'dark' : 'light'}`}>
-				<NavBar />
-				<div style={ {display: 'flex'}}>
-					<LeftBar />
-					<div style={{flex: 6}}>
-						<Outlet />
+			<QueryClientProvider client={queryClient}>
+				<div className={`theme-${darkMode ? 'dark' : 'light'}`}>
+					<NavBar />
+					<div style={ {display: 'flex'}}>
+						<LeftBar />
+						<div style={{flex: 6}}>
+							<Outlet />
+						</div>
+						<RightBar />
 					</div>
-					<RightBar />
 				</div>
-			</div>
+			</QueryClientProvider>
 		);
 	};
 

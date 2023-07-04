@@ -9,13 +9,13 @@ import MoreHorizIcon from '@mui/icons-material/MoreHoriz';
 import { Link } from 'react-router-dom';
 import { Comments } from '../comments/Comments';
 
-const Post = ({post}) => {
+const Post = (props) => {
+	const { post } = props;
 	const {
-		// id,
-		name,
+		userName,
 		userId,
-		profilePic,
-		desc,
+		userProfilePic,
+		postDesc,
 	} = post;
 
 	const [commentOpen, setCommentOpen] = useState(false);
@@ -26,10 +26,10 @@ const Post = ({post}) => {
 			<div className="container">
 				<div className="user">
 					<div className="userInfo">
-						<img src={profilePic} alt="author-img" />
+						<img src={userProfilePic} alt="author-img" />
 						<div className="details">
 							<Link to={`profile/${userId}`} style={{textDecoration: 'none', color: 'inherit'}}>
-								<span className='name'>{name}</span>
+								<span className='name'>{userName}</span>
 							</Link>
 							<span className='date'>1 min ago</span>
 						</div>
@@ -37,8 +37,8 @@ const Post = ({post}) => {
 					<MoreHorizIcon />
 				</div>
 				<div className="content">
-					<p>{desc}</p>
-					<img src={profilePic} alt="" />
+					<p>{postDesc}</p>
+					<img src={userProfilePic} alt="" />
 				</div>
 				<div className="info">
 					<div className="item">
