@@ -15,6 +15,22 @@ const getPosts = async (req, res) => {
 
 };
 
+const addPost = async (req, res) => {
+  const token = req.cookies.accessToken;
+  const post = req.body;
+  
+  if(!token) return res.status(401).json('Not logged in!');
+
+  jwt.verify(token, 'secretkey', async (error) => {
+    if(error) return res.status(403).json('Something went wrong!');
+
+    const newPostId = await postsModel.addPost(post);
+    return res.status(200).json({newPostId});
+  });
+
+};
+
 module.exports = {
-  getPosts
+  getPosts,
+  addPost,
 };

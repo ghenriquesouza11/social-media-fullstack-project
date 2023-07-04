@@ -12,6 +12,17 @@ const getPosts = async (id) => {
   return camelize(posts);
 };
 
+const addPost = async (post) => {
+  const { postDesc, postImg, userId } = post;
+
+  const query = 'INSERT INTO post(post_desc, post_img, user_id, created_at) VALUES (?, ?, ?, NOW())';
+
+  const [{insertId}] = await connection.execute(query, [postDesc, postImg, userId]);
+
+  return insertId;
+};
+
 module.exports = {
-  getPosts
+  getPosts,
+  addPost
 };
