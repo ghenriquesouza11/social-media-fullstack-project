@@ -33,11 +33,11 @@ const login = async (req, res) => {
 
   if(!checkPassword) {
 
-    res.status(400).json('Wrong password or username!');
+    return res.status(400).json('Wrong password or username!');
   }
   const token = jwt.sign({id:user[0].user_id}, 'secretkey');
 
-  res.cookie('accessToken', token, {httpOnly: true}).status(200).json(others);
+  return res.cookie('accessToken', token, {httpOnly: true}).status(200).json(others);
 };
 
 const logout = (_req, res) => {
